@@ -34,13 +34,7 @@
 
         <router-view></router-view>
 
-        <footer>
-            <div id="parallax">
-                <div class="container">
-                    <h4>e-Sports Manager</h4>
-                </div>
-            </div>
-
+        <footer>          
             <div class="footer-box">
                 <div class="container">
                     <div class="columns is-vcentered">
@@ -116,19 +110,6 @@
         }
     }
 
-    #parallax {
-        background: url("/img/parallax.jpg") no-repeat center;
-        &:before {
-            content: "";
-            background: url("/img/pattern-2.png") no-repeat bottom;
-        }
-
-        &:after {
-            content: "";
-            background: url("/img/pattern-1.png") no-repeat bottom;
-        }
-    }
-
     .footer-box {
         background: #040615;
         ul {
@@ -189,31 +170,6 @@
                     line-height: 40px;
                     font-size: 20px;
                 }
-            }
-        }
-
-        #parallax {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            line-height: 400px;
-            text-align: center;
-            &:before {
-                width: 100%;
-                height: 74px;
-                z-index: 9;
-                position: absolute;
-                top: -1px;
-                left: 0;
-            }
-
-            &:after {
-                width: 100%;
-                height: 74px;
-                z-index: 9;
-                position: absolute;
-                bottom: -1px;
-                left: 0;
             }
         }
 

@@ -6,8 +6,14 @@ export default [
     children: [
       {
         path: '',
-        name: 'painel.home',
+        name: 'home',
         component: () => import(/* webpackChunkName: "home" */ './../views/public/Home.vue'),
+        meta: { auth: false }
+      },
+      {
+        path: 'eventos/:slug/:id',
+        name: 'event',
+        component: () => import(/* webpackChunkName: "event" */ './../views/public/Event.vue'),
         meta: { auth: false }
       }
     ]
