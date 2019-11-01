@@ -6,7 +6,9 @@
                 <div class="columns is-centered">
                     <div class="column is-10">
                         <div class="info-subscription">
-                            <p>sdsdasd</p>
+                            <h1><b>Inscrição:</b> Torneio de Fifa 2019</h1>
+                            <span class="date"><b><i class="icofont-calendar"></i> Data do Evento: </b> 23 de Janeiro de 2020</span>
+                            <hr>
                         </div>
                     </div>
                 </div>
@@ -48,6 +50,20 @@
         .info-subscription {
             background: rgba(255, 255, 255, 0.04);
             border-radius: 5px;
+            h1 { color: #FFFFFF; }
+            hr { background: #ff7a21; }
+            p, a { color: #FFFFFF; }
+            .date {
+                display: block;
+                margin: 0;
+                color: #FFFFFF;
+                font-size: 18px;
+                margin-bottom: 30px;
+                b {
+                    color: #ff7a21;
+                    font-weight: 600;
+                }
+            }
         }
     }
 
@@ -69,6 +85,17 @@
             padding: 70px 0;
             .info-subscription {
                 padding: 30px;
+                h1 {
+                    font-size: 30px;
+                    font-weight: 700;
+                    margin: 0;
+                }
+                hr {
+                    width: 100px;
+                    height: 6px;
+                    display: block;
+                    margin: 0 0 30px 0;
+                }
             }
         }
     }
