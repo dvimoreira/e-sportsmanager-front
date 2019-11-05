@@ -158,6 +158,91 @@
                 </div>
             </div>
         </div>
+
+        <!-- MODAL AUTHENTICATION -->
+        <b-modal :active.sync="isComponentModalActive" has-modal-card trap-focus aria-role="dialog" aria-modal :width="650" :can-cancel="false">
+            <div class="modal-card" style="width: auto">
+                <section class="modal-card-body">
+                    <b-tabs type="is-toggle" expanded>
+                        <b-tab-item label="Login">
+                            <div class="columns is-multiline is-vcentered">
+                                <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.email" placeholder="E-mail"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                                    <b-input type="password"  class="form-control" v-model="form.auth.password" placeholder="Senha"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <a href="#" class="reset-pass">Esqueci minha senha</a>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd align-right">
+                                    <b-button type="is-warning" class="auth-btn">Login</b-button>
+                                </div>
+                            </div>
+                        </b-tab-item>
+
+                        <b-tab-item label="Cadastro" v-on:click="showAuthForm('register')">
+                            <div class="columns is-multiline is-vcentered">
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.name" placeholder="Nome Completo"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.email" placeholder="E-mail"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.phone" placeholder="Celular"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.dt_birth" placeholder="Data de Nascimento"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.cpf" placeholder="CPF"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.gender" placeholder="Sexo"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.cep" placeholder="CEP"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.district" placeholder="Rua"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.state" placeholder="Estado"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.city" placeholder="Cidade"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                                    <b-input class="form-control" v-model="form.auth.complement" placeholder="Complemento"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                                    <b-input type="password"  class="form-control" v-model="form.auth.password" placeholder="Senha"></b-input>
+                                </div>
+
+                                <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd align-right">
+                                    <b-button type="is-warning" class="auth-btn">Cadastrar</b-button>
+                                </div>
+                            </div>
+                        </b-tab-item>
+                    </b-tabs>
+                </section>
+            </div>
+        </b-modal>
     </div>
 </template>
 
@@ -167,11 +252,14 @@
         components: {},
         data () {
             return {
+                isComponentModalActive: true,
+                authOpc: 'login',
                 ticket: {
                     value: {}
                 },
                 form: {
-                    creditcard: {}
+                    creditcard: {},
+                    auth: {}
                 }
             }
         },
@@ -192,7 +280,11 @@
                 return yearArray
             }
         },
-        methods: {}
+        methods: {
+            showAuthForm (form) {
+                console.log(form)
+            }
+        }
     }
 </script>
 
@@ -211,6 +303,24 @@
             background: url("/img/pattern-1.png") no-repeat bottom;
             background-size: cover;
         }
+    }
+
+    .tabs.is-toggle li.is-active a {
+        background-color: #ff7a21;
+        border-color: #ff7a21;
+    }
+    .tabs.is-toggle a {
+        border-color: #ff7a21;
+        color: #FFFFFF;
+        &:hover {
+            border-color: rgba(255, 122, 33, 0.549);
+            background: rgba(255, 122, 33, 0.549);
+        }
+    }
+    .b-tabs {
+        margin-bottom: 0 !important;
+        .tabs { margin-bottom: 30px; }
+        .tab-content { padding: 0; }
     }
 
     .subscription-content {
@@ -253,17 +363,6 @@
                 }
             }
             &.payment-options {
-                .tabs.is-toggle li.is-active a {
-                    background-color: #ff7a21;
-                    border-color: #ff7a21;
-                }
-                .tabs.is-toggle a {
-                    border-color: #ff7a21;
-                    &:hover {
-                        border-color: rgba(255, 122, 33, 0.549);
-                        background: rgba(255, 122, 33, 0.549);
-                    }
-                }
                 .input, .taginput .taginput-container.is-focusable, .textarea, .select select {
                     background: transparent;
                     border: 2px solid #FFFFFF;
@@ -275,7 +374,6 @@
                 :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder { color:#FFFFFF; }
                 ::-moz-placeholder, :-ms-input-placeholder { color:#FFFFFF; }
                 :-ms-input-placeholder { color:#FFFFFF; }
-                .b-tabs { margin: 0; }
             }
             &.total-card {
                 color: #ff7a21;
@@ -289,6 +387,36 @@
             &:hover {
                 color: #FFFFFF;
                 background: rgba(255, 122, 33, 0.761);
+            }
+        }
+    }
+
+    .modal-card {
+        .modal-card-body {
+            background: #040615;
+            border-radius: 5px;
+            .input, .taginput .taginput-container.is-focusable, .textarea, .select select {
+                background: transparent;
+                border: 2px solid #FFFFFF;
+                color: #FFFFFF;
+                &:focus { box-shadow: none; }
+            }
+            .select:not(.is-multiple):not(.is-loading)::after { border-color: #FFFFFF; }
+            ::-webkit-input-placeholder { color:#FFFFFF; }
+            :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder { color:#FFFFFF; }
+            ::-moz-placeholder, :-ms-input-placeholder { color:#FFFFFF; }
+            :-ms-input-placeholder { color:#FFFFFF; }
+
+            a.reset-pass { color: #FFFFFF; }
+
+            .auth-btn {
+                color: #FFFFFF;
+                text-transform: uppercase;
+                &.is-warning { background: #ff7a21; }
+                &:hover {
+                    color: #FFFFFF;
+                    background: rgba(255, 122, 33, 0.761);
+                }
             }
         }
     }
@@ -365,6 +493,12 @@
                 font-weight: 400;
                 text-transform: uppercase;
                 height: 40px;
+            }
+        }
+
+        .modal-card {
+            .modal-card-body {
+                padding: 30px;
             }
         }
     }
