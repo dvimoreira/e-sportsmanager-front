@@ -98,55 +98,55 @@
 
                                 <div class="info-subscription payment-options">
                                     <b-tabs type="is-toggle" expanded>
-                                        <b-tab-item label="Cartão de Crédito"></b-tab-item>
+                                        <b-tab-item label="Cartão de Crédito">
+                                            <div class="creditcard-tab">
+                                                <div class="columns is-multiline">
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                                        <b-input class="form-control" v-model="form.creditcard.name" placeholder="Nome do Títular"></b-input>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                                        <b-input class="form-control" v-model="form.creditcard.card" placeholder="Número do Cartão"></b-input>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
+                                                        <b-select class="form-control" placeholder="Mês" expanded>
+                                                            <option
+                                                                v-for="mouth in ccMouth"
+                                                                :value="mouth"
+                                                                :key="mouth">
+                                                                {{ mouth }}
+                                                            </option>
+                                                        </b-select>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
+                                                        <b-select class="form-control" placeholder="Ano" expanded>
+                                                            <option
+                                                                v-for="year in ccYear"
+                                                                :value="year"
+                                                                :key="year">
+                                                                {{ year }}
+                                                            </option>
+                                                        </b-select>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
+                                                        <b-input class="form-control" v-model="form.creditcard.cvv" placeholder="CVV"></b-input>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                                        <b-input class="form-control" v-model="form.creditcard.brand" placeholder="Bandeira do cartão"></b-input>
+                                                    </div>
+
+                                                    <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                                                        <b-input class="form-control" v-model="form.creditcard.cpf" placeholder="CPF"></b-input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-tab-item>
                                         <b-tab-item label="Boleto"></b-tab-item>
                                     </b-tabs>
-
-                                    <div class="creditcard-tab">
-                                        <div class="columns is-multiline">
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
-                                                <b-input class="form-control" v-model="form.creditcard.name" placeholder="Nome do Títular"></b-input>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
-                                                <b-input class="form-control" v-model="form.creditcard.card" placeholder="Número do Cartão"></b-input>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
-                                                <b-select class="form-control" placeholder="Mês" expanded>
-                                                    <option
-                                                        v-for="mouth in ccMouth"
-                                                        :value="mouth"
-                                                        :key="mouth">
-                                                        {{ mouth }}
-                                                    </option>
-                                                </b-select>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
-                                                <b-select class="form-control" placeholder="Ano" expanded>
-                                                    <option
-                                                        v-for="year in ccYear"
-                                                        :value="year"
-                                                        :key="year">
-                                                        {{ year }}
-                                                    </option>
-                                                </b-select>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-4-desktop is-4-widescreen is-4-fullhd">
-                                                <b-input class="form-control" v-model="form.creditcard.cvv" placeholder="CVV"></b-input>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
-                                                <b-input class="form-control" v-model="form.creditcard.brand" placeholder="Bandeira do cartão"></b-input>
-                                            </div>
-
-                                            <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
-                                                <b-input class="form-control" v-model="form.creditcard.cpf" placeholder="CPF"></b-input>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="align-right">
@@ -252,7 +252,7 @@
         components: {},
         data () {
             return {
-                isComponentModalActive: true,
+                isComponentModalActive: false,
                 authOpc: 'login',
                 ticket: {
                     value: {}

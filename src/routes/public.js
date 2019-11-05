@@ -6,7 +6,7 @@ export default [
     children: [
       {
         path: '',
-        name: 'home',
+        name: 'public.home',
         component: () => import(/* webpackChunkName: "home" */ './../views/public/Home.vue'),
         meta: { auth: false }
       },
@@ -24,7 +24,7 @@ export default [
       },
       {
         path: '*',
-        component: () => import(/* webpackChunkName: "subscription" */ './../views/public/errors/404.vue'),
+        component: () => import(/* webpackChunkName: "error" */ './../views/public/errors/404.vue'),
         meta: { auth: false }
       }
     ]
