@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store'
 import RouteAuth from './routes/auth'
-import RouteDashboard from './routes/dashboard'
+import RouteBackend from './routes/backend'
 import RoutePublic from './routes/public'
 
 Vue.use(Router)
 
 let arrayRoutes = [
   ...RouteAuth,
-  ...RouteDashboard,
+  ...RouteBackend,
   ...RoutePublic
 ]
 
@@ -30,6 +30,10 @@ router.beforeEach((to, from, next) => {
     router.push({
       name: 'auth.login'
     })
+  }
+
+  if (to.meta.permition && !to.meta.permition.includes(store.state.user.permition)) {
+    // router.push({ name: 'app.error.permission' })
   }
 
   next()

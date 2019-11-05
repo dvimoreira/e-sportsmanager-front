@@ -7,7 +7,7 @@ export default [
       {
         path: 'login',
         name: 'auth.login',
-        component: () => import(/* webpackChunkName: "tournament-login" */ './../views/organizer/Login.vue'),
+        component: () => import(/* webpackChunkName: "tournament-login" */ './../views/backend/Login.vue'),
         meta: {
           auth: false
         }
