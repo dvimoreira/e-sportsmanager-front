@@ -16,7 +16,7 @@
                     <div class="columns">
                         <div class="column">
                             <ul class="list-navigation">
-                                <li><a href="#">Home</a></li>
+                                <li><router-link :to="{ name: 'home' }">Home</router-link></li>
                                 <li><a href="#">Eventos</a></li>
                                 <li><a href="#">Contato</a></li>
                             </ul>

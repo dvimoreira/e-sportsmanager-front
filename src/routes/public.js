@@ -6,7 +6,7 @@ export default [
     children: [
       {
         path: '',
-        name: 'public.home',
+        name: 'home',
         component: () => import(/* webpackChunkName: "home" */ './../views/public/Home.vue'),
         meta: { auth: false }
       },
