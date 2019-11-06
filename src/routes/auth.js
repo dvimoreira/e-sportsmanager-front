@@ -11,6 +11,14 @@ export default [
         meta: {
           auth: false
         }
+      },
+      {
+        path: 'register',
+        name: 'auth.register',
+        component: () => import(/* webpackChunkName: "tournament-register" */ './../views/backend/Register.vue'),
+        meta: {
+          auth: false
+        }
       }
     ]
   }

@@ -1,7 +1,7 @@
 <template>
     <div style="width: 100%;">
         <div class="align-center">
-            <h1>Faça o Login</h1>
+            <h1>Fazer Cadastro</h1>
         </div>
 
         <div class="columns is-centered is-vcentered">
@@ -9,25 +9,61 @@
                 <div class="login-form">
                     <div class="columns is-multiline">
                         <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
-                            <b-input class="form-control" placeholder="E-mail" v-model="form.email"></b-input>
+                            <b-input class="form-control" v-model="form.name" placeholder="Nome Completo"></b-input>
                         </div>
 
                         <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
-                            <b-input type="password" class="form-control" placeholder="Senha" v-model="form.password"></b-input>
+                            <b-input class="form-control" v-model="form.email" placeholder="E-mail"></b-input>
                         </div>
 
-                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd align-left">
-                            <a href="#" class="reset-pass">Esqueci minha senha</a>
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.phone" placeholder="Celular"></b-input>
                         </div>
 
-                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd align-right">
-                            <b-button type="is-warning" class="auth-btn">Fazer Login</b-button>
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.dt_birth" placeholder="Data de Nascimento"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.cpf" placeholder="CPF"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.gender" placeholder="Sexo"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                            <b-input class="form-control" v-model="form.cep" placeholder="CEP"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                            <b-input class="form-control" v-model="form.district" placeholder="Rua"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.state" placeholder="Estado"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd">
+                            <b-input class="form-control" v-model="form.city" placeholder="Cidade"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                            <b-input class="form-control" v-model="form.complement" placeholder="Complemento"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd">
+                            <b-input type="password"  class="form-control" v-model="form.password" placeholder="Senha"></b-input>
+                        </div>
+
+                        <div class="column is-variable is-12-mobile is-12-tablet is-12-desktop is-12-widescreen is-12-fullhd align-center">
+                            <b-button type="is-warning" class="auth-btn">Cadastrar</b-button>
                         </div>
                     </div>
                 </div>
 
                 <div class="other-form align-center">
-                    <router-link :to="{ name: 'auth.register' }" class="reset-pass">Criar uma conta</router-link>
+                    <router-link :to="{ name: 'auth.login' }" class="reset-pass">Fazer Login</router-link>
                 </div>
             </div>
         </div>
