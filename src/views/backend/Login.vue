@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="column is-variable is-12-mobile is-12-tablet is-6-desktop is-6-widescreen is-6-fullhd align-right">
-                            <b-button type="is-warning" class="auth-btn">Fazer Login</b-button>
+                            <b-button type="is-warning" class="auth-btn" v-on:click="onSubmit()">Fazer Login</b-button>
                         </div>
                     </div>
                 </div>
@@ -31,6 +31,8 @@
                 </div>
             </div>
         </div>
+
+        <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
     </div>
 </template>
 
@@ -42,17 +44,19 @@
         components: {},
         data () {
             return {
+                isLoading: false,
+                isFullPage: false,
                 form: {}
             }
         },
         methods: {
-            async onLogin (email, password) {
+            async onSubmit () {
                 try {
-                    this.loading = true
+                    this.isLoading = true
 
                     let data = {
-                        email: email,
-                        password: password
+                        email: this.form.email,
+                        password: this.form.password
                     }
 
                     let result = await AuthService.login(data)
@@ -72,44 +76,16 @@
                     }
                     throw Error(result.data.message)
                 } catch (e) {
-                    this.loading = false
+                    this.isLoading = false
+                    this.$buefy.notification.open({
+                        duration: 2000,
+                        message: e.message,
+                        position: 'is-top-left',
+                        type: 'is-danger',
+                        hasIcon: true
+                    })
                 } finally {
-                    this.loading = false
-                }
-            },
-
-            async onRegister () {
-                try {
-                    this.loading = true
-
-                    var data = {
-                        full_name: this.form.register.full_name,
-                        email: this.form.register.email,
-                        mobile_phone: this.form.register.mobile_phone,
-                        dt_birth: this.form.register.dt_birth,
-                        password: this.form.register.password,
-                        isOrganizer: true
-                    }
-
-                    let result = await AuthService.register(data)
-
-                    if (result.status === 200) {
-                        this.onLogin(this.form.register.email, this.form.register.password)
-                        return
-                    } else if (result.status === 422) {
-                        for (const key in result.data.errors) {
-                            if (result.data.errors.hasOwnProperty(key)) {
-                                const element = result.data.errors[key]
-                                throw Error(element.message)
-                            }
-                        }
-                        return
-                    }
-                    throw Error(result.data.message)
-                } catch (e) {
-                    this.loading = false
-                } finally {
-                    this.loading = false
+                    this.isLoading = false
                 }
             }
         }

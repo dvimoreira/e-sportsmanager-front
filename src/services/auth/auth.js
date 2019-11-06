@@ -25,7 +25,7 @@ const resetPassword = (data) => {
 }
 
 const login = (data) => {
-    return axios.post(`${API_HOST}/organizer/login`, data)
+    return axios.post(`${API_HOST}/auth/login`, data)
         .then(response => {
             return response
         })
@@ -35,7 +35,7 @@ const login = (data) => {
 }
 
 const register = (data) => {
-    return axios.post(`${API_HOST}/organizer/register`, data)
+    return axios.post(`${API_HOST}/auth/register`, data)
         .then(response => {
             return response
         })
